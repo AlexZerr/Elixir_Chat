@@ -8,7 +8,7 @@ defmodule ElixirChat.ChatRoom do
     with chat_room_changeset <- Schema.create_changeset(params),
       {:ok, chat_room} <- Query.insert(chat_room_changeset)
     do
-      {:ok, customer}
+      {:ok, chat_room}
     else
       {:error, %Ecto.Changeset{} = error} -> {:error, Query.changeset_errors(error)}
       error -> error
